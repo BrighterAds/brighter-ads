@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brighter Ads — User Acquisition, Monetization & Creative for Games &amp; Apps</title>
+<meta name="description" content="Brighter Ads runs user acquisition, monetization, creative strategy, and data reporting for game and app studios.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<!-- Calendly: powers the real "pick a day & time" popup and sends you an email the moment someone books. -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+<style>
+  :root{
+    --bg:#07070b;
+    --bg-alt:#0c0c13;
+    --surface:#111118;
+    --surface-2:#15151d;
+    --border:rgba(255,255,255,0.09);
+    --border-strong:rgba(255,255,255,0.16);
+    --text:#f5f5f7;
+    --text-dim:#9a9aa8;
+    --text-faint:#5c5c68;
+
+    --blue:#35c1ff;
+    --lime:#d4ff3d;
+    --magenta:#ff3dae;
+    --violet:#9b5cff;
+
+    --font-display:'Bricolage Grotesque', system-ui, sans-serif;
+    --font-body:'Inter', system-ui, sans-serif;
+    --font-mono:'JetBrains Mono', monospace;
+
+    --radius-lg:20px;
+    --radius-md:14px;
+    --radius-sm:8px;
+
+    --container:1180px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  img,svg{display:block; max-width:100%;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  button{font:inherit; cursor:pointer;}
+
+  .wrap{
+    width:100%;
+    max-width:var(--container);
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  h1,h2,h3,h4{
+    font-family:var(--font-display);
+    font-weight:700;
+    letter-spacing:-0.01em;
+    line-height:1.08;
+  }
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:var(--font-mono);
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--text-dim);
+  }
+  .eyebrow::before{
+    content:"";
+    width:7px; height:7px;
+    border-radius:50%;
+    background:var(--lime);
+    box-shadow:0 0 12px var(--lime);
+    flex-shrink:0;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:14px 26px;
+    border-radius:999px;
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:15px;
+    border:1px solid transparent;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:var(--lime);
+    color:#08080b;
+  }
+  .btn-primary:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 30px -6px rgba(212,255,61,0.55);
+  }
+  .btn-ghost{
+    background:transparent;
+    color:var(--text);
+    border-color:var(--border-strong);
+  }
+  .btn-ghost:hover{
+    border-color:var(--text);
+    transform:translateY(-2px);
+  }
+  .btn-block{ width:100%; }
+
+  /* ---------- Nav ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(7,7,11,0.75);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 28px;
+  }
+  .logo{
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:19px;
+    letter-spacing:-0.01em;
+    display:flex;
+    align-items:center;
+    gap:9px;
+  }
+  .logo-dot{
+    width:10px; height:10px;
+    border-radius:3px;
+    background:linear-gradient(135deg, var(--blue), var(--magenta) 60%, var(--lime));
+    flex-shrink:0;
+  }
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:34px;
+  }
+  .nav-links a{
+    font-size:14px;
+    font-weight:500;
+    color:var(--text-dim);
+    transition:color .15s ease;
+  }
+  .nav-links a:hover{ color:var(--text); }
+  .nav-cta{ display:flex; align-items:center; gap:18px; }
+  .nav-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;
+    border:none;
+    padding:6px;
+  }
+  .nav-toggle span{
+    width:22px; height:2px;
+    background:var(--text);
+    border-radius:2px;
+  }
+
+  @media (max-width:860px){
+    .nav-links{
+      position:absolute;
+      top:100%; left:0; right:0;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:0;
+      background:var(--bg-alt);
+      border-bottom:1px solid var(--border);
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .25s ease;
+    }
+    .nav-links.open{ max-height:280px; }
+    .nav-links a{
+      width:100%;
+      padding:16px 28px;
+      border-top:1px solid var(--border);
+    }
+    .nav-toggle{ display:flex; }
+    .nav-cta .btn-ghost{ display:none; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    padding:110px 0 70px;
+    overflow:hidden;
+    background:#000;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:-220px; right:-160px;
+    width:620px; height:620px;
+    background:radial-gradient(circle, rgba(53,193,255,0.16), transparent 65%);
+    pointer-events:none;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    bottom:-260px; left:-180px;
+    width:560px; height:560px;
+    background:radial-gradient(circle, rgba(255,61,174,0.13), transparent 65%);
+    pointer-events:none;
+  }
+  .hero-grid{
+    position:relative;
+    z-index:1;
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:48px;
+    align-items:center;
+  }
+  .hero-wordmark{
+    font-family:var(--font-display);
+    font-weight:800;
+    letter-spacing:-0.02em;
+    line-height:0.92;
+    font-size:clamp(44px, 7vw, 88px);
+    color:var(--lime);
+  }
+  .hero-tagline{
+    margin-top:8px;
+    font-family:var(--font-mono);
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    color:var(--text-dim);
+  }
+  .hero-headline{
+    margin-top:48px;
+    font-size:clamp(26px, 3.6vw, 42px);
+    color:var(--text);
+    line-height:1.12;
+  }
+  .hero-sub{
+    margin-top:16px;
+    font-size:17px;
+    color:var(--text-dim);
+  }
+  .hero-actions{
+    margin-top:34px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .hero-media{
+    position:relative;
+    min-height:420px;
+    border-radius:var(--radius-lg);
+    border:1px solid var(--border);
+    background:linear-gradient(160deg, rgba(53,193,255,0.07), rgba(255,61,174,0.05));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:24px;
+    overflow:hidden;
+  }
+  .hero-media img{
+    width:100%; height:100%;
+    object-fit:cover;
+    border-radius:calc(var(--radius-lg) - 1px);
+  }
+  .hero-media span{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--text-faint);
+  }
+  @media (max-width:900px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-media{ min-height:260px; order:2; margin-top:8px; }
+  }
+
+  /* ---------- Ticker (signature element) ---------- */
+  .ticker-section{
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+    background:var(--bg-alt);
+    padding:16px 0;
+  }
+  .ticker-label{
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:0.12em;
+    color:var(--text-faint);
+    text-transform:uppercase;
+    padding:0 28px 10px;
+  }
+  .ticker-track-wrap{
+    overflow:hidden;
+    -webkit-mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  }
+  .ticker-track{
+    display:flex;
+    width:max-content;
+    animation:ticker-scroll 32s linear infinite;
+  }
+  @keyframes ticker-scroll{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-50%); }
+  }
+  .ticker-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:var(--font-mono);
+    font-size:14px;
+    font-weight:600;
+    padding:0 34px;
+    white-space:nowrap;
+    border-right:1px solid var(--border);
+  }
+  .ticker-item .dot{
+    width:6px; height:6px;
+    border-radius:50%;
+    flex-shrink:0;
+  }
+  .t-blue .dot{ background:var(--blue); box-shadow:0 0 8px var(--blue); }
+  .t-lime .dot{ background:var(--lime); box-shadow:0 0 8px var(--lime); }
+  .t-magenta .dot{ background:var(--magenta); box-shadow:0 0 8px var(--magenta); }
+  .t-violet .dot{ background:var(--violet); box-shadow:0 0 8px var(--violet); }
+  .t-blue{ color:var(--blue); }
+  .t-lime{ color:var(--lime); }
+  .t-magenta{ color:var(--magenta); }
+  .t-violet{ color:var(--violet); }
+
+  /* ---------- Sections generic ---------- */
+  .section{
+    padding:110px 0;
+  }
+  .section-head{
+    max-width:620px;
+    margin-bottom:56px;
+  }
+  .section-head h2{
+    margin-top:16px;
+    font-size:clamp(28px, 4vw, 42px);
+  }
+  .section-head p{
+    margin-top:16px;
+    color:var(--text-dim);
+    font-size:16px;
+  }
+  .reveal{
+    opacity:0;
+    transform:translateY(22px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.in-view{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  /* ---------- Services ---------- */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:20px;
+  }
+  .service-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius-lg);
+    padding:32px;
+    transition:transform .2s ease, border-color .2s ease, background .2s ease;
+  }
+  .service-card:hover{
+    transform:translateY(-4px);
+    background:var(--surface-2);
+  }
+  .service-card .svc-icon{
+    width:42px; height:42px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:22px;
+  }
+  .svc-icon svg{ width:20px; height:20px; }
+  .card-blue{ border-color:rgba(53,193,255,0.35); }
+  .card-blue:hover{ border-color:var(--blue); box-shadow:0 0 40px -20px rgba(53,193,255,0.6); }
+  .card-blue .svc-icon{ background:rgba(53,193,255,0.14); color:var(--blue); }
+
+  .card-lime{ border-color:rgba(212,255,61,0.3); }
+  .card-lime:hover{ border-color:var(--lime); box-shadow:0 0 40px -20px rgba(212,255,61,0.5); }
+  .card-lime .svc-icon{ background:rgba(212,255,61,0.14); color:var(--lime); }
+
+  .card-magenta{ border-color:rgba(255,61,174,0.32); }
+  .card-magenta:hover{ border-color:var(--magenta); box-shadow:0 0 40px -20px rgba(255,61,174,0.55); }
+  .card-magenta .svc-icon{ background:rgba(255,61,174,0.14); color:var(--magenta); }
+
+  .card-violet{ border-color:rgba(155,92,255,0.32); }
+  .card-violet:hover{ border-color:var(--violet); box-shadow:0 0 40px -20px rgba(155,92,255,0.55); }
+  .card-violet .svc-icon{ background:rgba(155,92,255,0.14); color:var(--violet); }
+
+  .service-card h3{
+    font-size:21px;
+    margin-bottom:12px;
+  }
+  .service-card p{
+    color:var(--text-dim);
+    font-size:15px;
+  }
+  .service-card .tag{
+    display:inline-block;
+    margin-top:18px;
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--text-faint);
+  }
+
+  @media (max-width:760px){
+    .services-grid{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- Experience / stats ---------- */
+  .experience{
+    background:var(--bg-alt);
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+  }
+  .stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:0;
+  }
+  .stat{
+    padding:40px 24px;
+    border-left:1px solid var(--border);
+  }
+  .stat:first-child{ border-left:none; padding-left:0; }
+  .stat .num{
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:clamp(30px, 4vw, 44px);
+    line-height:1;
+  }
+  .stat:nth-child(1) .num{ color:var(--blue); }
+  .stat:nth-child(2) .num{ color:var(--lime); }
+  .stat:nth-child(3) .num{ color:var(--magenta); }
+  .stat:nth-child(4) .num{ color:var(--violet); }
+  .stat .label{
+    margin-top:10px;
+    font-size:14px;
+    color:var(--text-dim);
+  }
+  @media (max-width:760px){
+    .stats-grid{ grid-template-columns:1fr 1fr; }
+    .stat{ border-left:none; border-top:1px solid var(--border); padding:28px 0; }
+    .stat:nth-child(odd){ padding-right:16px; }
+    .stat:nth-child(even){ padding-left:16px; }
+    .stat:first-child, .stat:nth-child(2){ border-top:none; }
+  }
+
+  /* ---------- About ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:60px;
+    align-items:center;
+  }
+  .about-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius-lg);
+    padding:36px;
+  }
+  .about-card .role{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--lime);
+  }
+  .about-card h3{
+    margin-top:10px;
+    font-size:24px;
+  }
+  .about-card .divider{
+    height:1px;
+    background:var(--border);
+    margin:22px 0;
+  }
+  .about-card ul{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .about-card li{
+    display:flex;
+    gap:10px;
+    font-size:14px;
+    color:var(--text-dim);
+  }
+  .about-card li::before{
+    content:"";
+    width:5px; height:5px;
+    margin-top:7px;
+    border-radius:50%;
+    background:var(--blue);
+    flex-shrink:0;
+  }
+  .about-text p{
+    color:var(--text-dim);
+    font-size:16px;
+    margin-bottom:18px;
+  }
+  .about-text p:first-of-type{
+    font-size:19px;
+    color:var(--text);
+    font-family:var(--font-display);
+    font-weight:500;
+    line-height:1.4;
+  }
+  @media (max-width:860px){
+    .about-grid{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- Contact ---------- */
+  .contact{
+    background:var(--bg-alt);
+    border-top:1px solid var(--border);
+  }
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:24px;
+    align-items:stretch;
+  }
+  .panel{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius-lg);
+    padding:40px;
+  }
+  .panel h3{ font-size:22px; margin-bottom:6px; }
+  .panel .sub{ color:var(--text-dim); font-size:14px; margin-bottom:28px; }
+
+  .field{
+    margin-bottom:18px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .field label{
+    font-size:13px;
+    font-weight:500;
+    color:var(--text-dim);
+  }
+  .field input,
+  .field textarea{
+    background:var(--bg);
+    border:1px solid var(--border-strong);
+    border-radius:var(--radius-sm);
+    padding:13px 14px;
+    color:var(--text);
+    font-family:var(--font-body);
+    font-size:14px;
+    outline:none;
+    transition:border-color .15s ease, box-shadow .15s ease;
+  }
+  .field input:focus,
+  .field textarea:focus{
+    border-color:var(--blue);
+    box-shadow:0 0 0 3px rgba(53,193,255,0.18);
+  }
+  .field textarea{ resize:vertical; min-height:110px; }
+  .form-note{
+    margin-top:14px;
+    font-size:12px;
+    color:var(--text-faint);
+  }
+
+  .book-panel{
+    background:linear-gradient(160deg, var(--surface) 0%, #14101c 100%);
+    display:flex;
+    flex-direction:column;
+  }
+  .book-panel .badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--violet);
+    background:rgba(155,92,255,0.12);
+    border:1px solid rgba(155,92,255,0.3);
+    padding:6px 12px;
+    border-radius:999px;
+    width:fit-content;
+    margin-bottom:20px;
+  }
+  .book-panel .clock{
+    width:7px; height:7px; border-radius:50%;
+    background:var(--violet);
+  }
+  .book-panel h3{ font-size:24px; }
+  .book-panel p{ color:var(--text-dim); font-size:14px; margin-top:10px; margin-bottom:26px; }
+  .book-panel ul{ margin-bottom:30px; display:flex; flex-direction:column; gap:12px; }
+  .book-panel li{
+    display:flex;
+    gap:10px;
+    font-size:14px;
+    color:var(--text-dim);
+  }
+  .book-panel li::before{
+    content:"✓";
+    color:var(--lime);
+    font-weight:700;
+    flex-shrink:0;
+  }
+  .book-panel .btn{ margin-top:auto; }
+
+  @media (max-width:900px){
+    .contact-grid{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding:50px 0 36px;
+  }
+  .footer-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:24px;
+    padding-bottom:30px;
+    border-bottom:1px solid var(--border);
+  }
+  .footer-links{
+    display:flex;
+    gap:26px;
+    flex-wrap:wrap;
+  }
+  .footer-links a{
+    font-size:14px;
+    color:var(--text-dim);
+  }
+  .footer-links a:hover{ color:var(--text); }
+  .footer-bottom{
+    padding-top:24px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+    font-size:13px;
+    color:var(--text-faint);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav wrap">
+    <a href="#top" class="logo"><span class="logo-dot"></span>BRIGHTER ADS</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      <a href="#book" class="btn btn-primary">Book a call</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="hero-wordmark">BRIGHTER ADS</div>
+        <div class="hero-tagline">Brighter Mindsets</div>
+
+        <h1 class="hero-headline">Performance marketing for games &amp; apps</h1>
+        <p class="hero-sub">Strategy, Data, Creatives</p>
+
+        <div class="hero-actions">
+          <a href="#book" class="btn btn-primary">Book a 30-min call</a>
+          <a href="#contact" class="btn btn-ghost">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="hero-media">
+        <img src="brighter-ads-hero-animated.gif" alt="Brighter Ads mobile game mockup — cat mascot winking, glowing treasure chest, pulsing level map and play button">
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER — signature element -->
+  <div class="ticker-section">
+    <div class="ticker-label wrap" style="padding-left:0; padding-right:0;">Signal strip — illustrative campaign metrics, color-coded by service</div>
+    <div class="ticker-track-wrap">
+      <div class="ticker-track" id="tickerTrack">
+        <!-- items injected twice via JS for seamless loop -->
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">What I do</span>
+        <h2>Four disciplines. One accountable owner.</h2>
+        <p>No handoffs between departments that don't talk to each other. Acquisition, monetization, creative, and reporting are run as one connected loop — because a change in one always moves the other three.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card card-blue reveal">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3>User Acquisition</h3>
+          <p>Paid UA across Meta, Google, TikTok, AppLovin, and ironSource — planned around payback windows and LTV, not vanity installs. Channel mix, bid strategy, MMP setup, and fraud checks included.</p>
+          <span class="tag">Meta · Google · TikTok · AppLovin · ironSource</span>
+        </div>
+
+        <div class="service-card card-lime reveal">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </div>
+          <h3>Monetization</h3>
+          <p>Ad monetization and IAP tuning that raises eCPM and LTV without wrecking retention. Waterfall and mediation setup, placement strategy, and A/B testing on unit frequency and price points.</p>
+          <span class="tag">Mediation · Waterfall · IAP · Ad Placement</span>
+        </div>
+
+        <div class="service-card card-magenta reveal">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          </div>
+          <h3>Creative Strategy</h3>
+          <p>Creative that explains the game in the first two seconds. Hook-first video ads, concept testing, and iteration cycles judged on hook rate and hold rate — not internal opinions.</p>
+          <span class="tag">Hook Testing · Concepting · Iteration</span>
+        </div>
+
+        <div class="service-card card-violet reveal">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-6 4 3 4-8"/></svg>
+          </div>
+          <h3>Data Reporting</h3>
+          <p>Dashboards and reporting that show what's working before the budget runs out. Custom attribution views, cohort and LTV modeling, and a weekly readout your team will actually open.</p>
+          <span class="tag">Attribution · Cohorts · Weekly Readouts</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE / STATS -->
+  <section class="experience" id="experience">
+    <div class="wrap" style="padding:0 28px;">
+      <div class="stats-grid">
+        <div class="stat reveal">
+          <div class="num">10+ yrs</div>
+          <div class="label">In mobile games &amp; app growth</div>
+        </div>
+        <div class="stat reveal">
+          <div class="num">$40M+</div>
+          <div class="label">Ad spend planned &amp; managed</div>
+        </div>
+        <div class="stat reveal">
+          <div class="num">250+</div>
+          <div class="label">Games &amp; apps launched or scaled</div>
+        </div>
+        <div class="stat reveal">
+          <div class="num">3.5x</div>
+          <div class="label">Average ROAS lift on managed accounts</div>
+        </div>
+      </div>
+    </div>
+    <div style="height:1px;"></div>
+  </section>
+  <div class="wrap" style="padding:0 28px;">
+    <p style="font-size:12px; color:var(--text-faint); padding:14px 0 0; font-family:var(--font-mono);">Figures above are placeholders — swap in your real track record.</p>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-card reveal">
+          <span class="role">Founder, Brighter Ads</span>
+          <h3>Your Name</h3>
+          <div class="divider"></div>
+          <ul>
+            <li>10+ years in mobile UA &amp; monetization</li>
+            <li>In-house and agency-side across hypercasual, midcore &amp; subscription apps</li>
+            <li>Hands-on with every account — no junior handoffs</li>
+            <li>Built reporting systems used by studio leadership teams</li>
+          </ul>
+        </div>
+        <div class="about-text reveal">
+          <span class="eyebrow">About</span>
+          <p style="margin-top:16px;">I've spent over a decade inside the mobile games and apps industry — first as an in-house UA lead, then agency-side across studios of every size.</p>
+          <p>I've sat through the launches that missed target and the ones that hit, and built the reporting habits that make the difference visible early enough to act on. Brighter Ads is the result: a lean, senior-only operation where every engagement is run directly by me, not passed down an account chain.</p>
+          <p>If you want a partner who treats your CPI, ROAS, and retention curves like their own P&amp;L, that's what this is.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Contact</span>
+        <h2>Let's look at your numbers.</h2>
+        <p>Send a few details about your app or game, or skip straight to a call.</p>
+      </div>
+
+      <div class="contact-grid reveal">
+        <div class="panel">
+          <h3>Send a message</h3>
+          <div class="sub">I read every message myself — expect a reply within one business day.</div>
+
+          <!-- Replace the form action below with your own handler (e.g. Formspree, Basin, or a backend endpoint) to receive submissions. -->
+          <form action="https://formspree.io/f/your-form-id" method="POST">
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="jane@studio.com" required>
+            </div>
+            <div class="field">
+              <label for="company">Studio / company</label>
+              <input type="text" id="company" name="company" placeholder="Studio name">
+            </div>
+            <div class="field">
+              <label for="message">What are you working on?</label>
+              <textarea id="message" name="message" placeholder="Tell me about your app or game, current channels, and what's not working yet."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Send message</button>
+          </form>
+          <div class="form-note">Hooked up via Formspree placeholder — swap the form action for your own endpoint before going live.</div>
+        </div>
+
+        <div class="panel book-panel" id="book">
+          <span class="badge"><span class="clock"></span>30 MIN · FREE</span>
+          <h3>Book a 30-min call</h3>
+          <p>A straight conversation about your current acquisition, monetization, or reporting setup — what's working, what isn't, and whether Brighter Ads is a fit.</p>
+          <ul>
+            <li>Quick audit of your current channel mix</li>
+            <li>Honest read on where the biggest gains are</li>
+            <li>No deck, no pitch — just the numbers</li>
+          </ul>
+          <!-- Replace YOUR-CALENDLY-LINK below with your own Calendly (or Cal.com) event link. -->
+          <a href="https://calendly.com/YOUR-CALENDLY-LINK/30min"
+             class="btn btn-primary btn-block calendly-trigger"
+             data-calendly-url="https://calendly.com/YOUR-CALENDLY-LINK/30min?background_color=07070b&text_color=f5f5f7&primary_color=d4ff3d"
+             target="_blank" rel="noopener">Choose a time →</a>
+          <div class="form-note">Opens a live calendar — the visitor picks an open day and time, and you both get an instant email confirmation.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <a href="#top" class="logo"><span class="logo-dot"></span>BRIGHTER ADS</a>
+      <ul class="footer-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Brighter Ads. All rights reserved.</span>
+      <span>User acquisition · Monetization · Creative strategy · Data reporting</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Booking button — opens Calendly's popup calendar so the visitor can pick a real day/time.
+  // Falls back to opening Calendly in a new tab if the widget script didn't load (e.g. ad blocker).
+  document.querySelectorAll('.calendly-trigger').forEach(btn => {
+    btn.addEventListener('click', function(e){
+      if (window.Calendly) {
+        e.preventDefault();
+        window.Calendly.initPopupWidget({ url: this.dataset.calendlyUrl });
+      }
+      // else: let the default link behavior open Calendly in a new tab
+    });
+  });
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // Ticker content
+  const tickerItems = [
+    { cls:'t-blue',    text:'CPI −34%' },
+    { cls:'t-lime',    text:'eCPM +28%' },
+    { cls:'t-magenta', text:'HOOK RATE 41%' },
+    { cls:'t-violet',  text:'ROAS 312%' },
+    { cls:'t-blue',    text:'D7 RETENTION 22%' },
+    { cls:'t-lime',    text:'ARPDAU +19%' },
+    { cls:'t-magenta', text:'CTR 3.8%' },
+    { cls:'t-violet',  text:'LTV:CAC 2.4x' },
+  ];
+  const track = document.getElementById('tickerTrack');
+  function renderTicker(){
+    const html = tickerItems.map(i => `<div class="ticker-item ${i.cls}"><span class="dot"></span>${i.text}</div>`).join('');
+    track.innerHTML = html + html; // duplicate for seamless loop
+  }
+  renderTicker();
+
+  // Scroll reveal
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduceMotion && 'IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if(e.isIntersecting){
+          e.target.classList.add('in-view');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in-view'));
+  }
+</script>
+
+</body>
+</html>
