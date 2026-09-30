@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobile User Acquisition &amp; Growth Marketing | Brighter Ads</title>
+<meta name="description" content="Brighter Ads helps mobile game and app studios grow through user acquisition, performance marketing, ad monetization, creative strategy, and data analytics.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#07070b;
+    --bg-alt:#0c0c13;
+    --surface:#111118;
+    --surface-2:#15151d;
+    --border:rgba(255,255,255,0.09);
+    --border-strong:rgba(255,255,255,0.16);
+    --text:#f5f5f7;
+    --text-dim:#9a9aa8;
+    --text-faint:#5c5c68;
+
+    --blue:#35c1ff;
+    --lime:#d4ff3d;
+    --magenta:#ff3dae;
+    --violet:#9b5cff;
+
+    --font-display:'Bricolage Grotesque', system-ui, sans-serif;
+    --font-body:'Inter', system-ui, sans-serif;
+    --font-mono:'JetBrains Mono', monospace;
+
+    --radius-lg:20px;
+    --radius-md:14px;
+    --radius-sm:8px;
+
+    --container:1180px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  img,svg{display:block; max-width:100%;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  button{font:inherit; cursor:pointer;}
+
+  .wrap{
+    width:100%;
+    max-width:var(--container);
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  h1,h2,h3,h4{
+    font-family:var(--font-display);
+    font-weight:700;
+    letter-spacing:-0.01em;
+    line-height:1.08;
+  }
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:var(--font-mono);
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--text-dim);
+  }
+  .eyebrow::before{
+    content:"";
+    width:7px; height:7px;
+    border-radius:50%;
+    background:var(--lime);
+    box-shadow:0 0 12px var(--lime);
+    flex-shrink:0;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:14px 26px;
+    border-radius:999px;
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:15px;
+    border:1px solid transparent;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:var(--lime);
+    color:#08080b;
+  }
+  .btn-primary:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 30px -6px rgba(212,255,61,0.55);
+  }
+  .btn-ghost{
+    background:transparent;
+    color:var(--text);
+    border-color:var(--border-strong);
+  }
+  .btn-ghost:hover{
+    border-color:var(--text);
+    transform:translateY(-2px);
+  }
+  .btn-block{ width:100%; }
+
+  /* ---------- Nav ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(7,7,11,0.75);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 28px;
+  }
+  .logo{
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:19px;
+    letter-spacing:-0.01em;
+    display:flex;
+    align-items:center;
+    gap:9px;
+  }
+  .logo-dot{
+    width:10px; height:10px;
+    border-radius:3px;
+    background:linear-gradient(135deg, var(--blue), var(--magenta) 60%, var(--lime));
+    flex-shrink:0;
+  }
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:34px;
+  }
+  .nav-links a{
+    font-size:14px;
+    font-weight:500;
+    color:var(--text-dim);
+    transition:color .15s ease;
+  }
+  .nav-links a:hover{ color:var(--text); }
+  .nav-cta{ display:flex; align-items:center; gap:18px; }
+  .nav-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;
+    border:none;
+    padding:6px;
+  }
+  .nav-toggle span{
+    width:22px; height:2px;
+    background:var(--text);
+    border-radius:2px;
+  }
+
+  @media (max-width:860px){
+    .nav-links{
+      position:absolute;
+      top:100%; left:0; right:0;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:0;
+      background:var(--bg-alt);
+      border-bottom:1px solid var(--border);
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .25s ease;
+    }
+    .nav-links.open{ max-height:280px; }
+    .nav-links a{
+      width:100%;
+      padding:16px 28px;
+      border-top:1px solid var(--border);
+    }
+    .nav-toggle{ display:flex; }
+    .nav-cta .btn-ghost{ display:none; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    padding:110px 0 70px;
+    overflow:hidden;
+    background:#000;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:-220px; right:-160px;
+    width:620px; height:620px;
+    background:radial-gradient(circle, rgba(53,193,255,0.16), transparent 65%);
+    pointer-events:none;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    bottom:-260px; left:-180px;
+    width:560px; height:560px;
+    background:radial-gradient(circle, rgba(255,61,174,0.13), transparent 65%);
+    pointer-events:none;
+  }
+  .hero-grid{
+    position:relative;
+    z-index:1;
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:48px;
+    align-items:center;
+  }
+  .hero-wordmark{
+    font-family:var(--font-display);
+    font-weight:800;
+    letter-spacing:-0.02em;
+    line-height:0.92;
+    font-size:clamp(44px, 7vw, 88px);
+    color:var(--lime);
+  }
+  .hero-tagline{
+    margin-top:8px;
+    font-family:var(--font-mono);
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    color:var(--text-dim);
+  }
+  .hero-headline{
+    margin-top:48px;
+    font-size:clamp(26px, 3.6vw, 42px);
+    color:var(--text);
+    line-height:1.12;
+  }
+  .hero-sub{
+    margin-top:16px;
+    font-size:17px;
+    color:var(--text-dim);
+  }
+  .hero-actions{
+    margin-top:34px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .hero-media{
+    position:relative;
+    min-height:420px;
+    border-radius:var(--radius-lg);
+    border:1px solid var(--border);
+    background:linear-gradient(160deg, rgba(53,193,255,0.07), rgba(255,61,174,0.05));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:24px;
+    overflow:hidden;
+  }
+  .hero-media img{
+    width:100%; height:100%;
+    object-fit:cover;
+    border-radius:calc(var(--radius-lg) - 1px);
+  }
+  .hero-media span{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--text-faint);
+  }
+  @media (max-width:900px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-media{ min-height:260px; order:2; margin-top:8px; }
+  }
+
+  /* ---------- Ticker (signature element) ---------- */
+  .ticker-section{
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+    background:var(--bg-alt);
+    padding:16px 0;
+  }
+  .ticker-label{
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:0.12em;
+    color:var(--text-faint);
+    text-transform:uppercase;
+    padding:0 28px 10px;
+  }
+  .ticker-track-wrap{
+    overflow:hidden;
+    -webkit-mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  }
+  .ticker-track{
+    display:flex;
+    width:max-content;
+    animation:ticker-scroll 32s linear infinite;
+  }
+  @keyframes ticker-scroll{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-50%); }
+  }
+  .ticker-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:var(--font-mono);
+    font-size:14px;
+    font-weight:600;
+    padding:0 34px;
+    white-space:nowrap;
+    border-right:1px solid var(--border);
+  }
+  .ticker-item .dot{
+    width:6px; height:6px;
+    border-radius:50%;
+    flex-shrink:0;
+  }
+  .t-blue .dot{ background:var(--blue); box-shadow:0 0 8px var(--blue); }
+  .t-lime .dot{ background:var(--lime); box-shadow:0 0 8px var(--lime); }
+  .t-magenta .dot{ background:var(--magenta); box-shadow:0 0 8px var(--magenta); }
+  .t-violet .dot{ background:var(--violet); box-shadow:0 0 8px var(--violet); }
+  .t-blue{ color:var(--blue); }
+  .t-lime{ color:var(--lime); }
+  .t-magenta{ color:var(--magenta); }
+  .t-violet{ color:var(--violet); }
+
+  /* ---------- Sections generic ---------- */
+  .section{
+    padding:110px 0;
+  }
+  .section-head{
+    max-width:620px;
+    margin-bottom:56px;
+  }
+  .section-head h2{
+    margin-top:16px;
+    font-size:clamp(28px, 4vw, 42px);
+  }
+  .section-head p{
+    margin-top:16px;
+    color:var(--text-dim);
+    font-size:16px;
+  }
+  .reveal{
+    opacity:0;
+    transform:translateY(22px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.in-view{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  /* ---------- Services ---------- */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:20px;
+  }
+  .service-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius-lg);
+    padding:32px;
+    transition:transform .2s ease, border-color .2s ease, background .2s ease;
+  }
+  .service-card:hover{
+    transform:translateY(-4px);
+    background:var(--surface-2);
+  }
+  .service-card .svc-icon{
+    width:42px; height:42px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:22px;
+  }
+  .svc-icon svg{ width:20px; height:20px; }
+  .card-blue{ border-color:rgba(53,193,255,0.35); }
+  .card-blue:hover{ border-color:var(--blue); box-shadow:0 0 40px -20px rgba(53,193,255,0.6); }
+  .card-blue .svc-icon{ background:rgba(53,193,255,0.14); color:var(--blue); }
+
+  .card-lime{ border-color:rgba(212,255,61,0.3); }
+  .card-lime:hover{ border-color:var(--lime); box-shadow:0 0 40px -20px rgba(212,255,61,0.5); }
+  .card-lime .svc-icon{ background:rgba(212,255,61,0.14); color:var(--lime); }
+
+  .card-magenta{ border-color:rgba(255,61,174,0.32); }
+  .card-magenta:hover{ border-color:var(--magenta); box-shadow:0 0 40px -20px rgba(255,61,174,0.55); }
+  .card-magenta .svc-icon{ background:rgba(255,61,174,0.14); color:var(--magenta); }
+
+  .card-violet{ border-color:rgba(155,92,255,0.32); }
+  .card-violet:hover{ border-color:var(--violet); box-shadow:0 0 40px -20px rgba(155,92,255,0.55); }
+  .card-violet .svc-icon{ background:rgba(155,92,255,0.14); color:var(--violet); }
+
+  .service-card h3{
+    font-size:21px;
+    margin-bottom:12px;
+  }
+  .service-card p{
+    color:var(--text-dim);
+    font-size:15px;
+  }
+  .service-card .tag{
+    display:inline-block;
+    margin-top:18px;
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--text-faint);
+  }
+
+  @media (max-width:760px){
+    .services-grid{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- Experience / stats ---------- */
+  .experience{
+    background:var(--bg-alt);
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+  }
+  .stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:0;
+  }
+  .stat{
+    padding:40px 24px;
+    border-left:1px solid var(--border);
+  }
+  .stat:first-child{ border-left:none; padding-left:0; }
+  .stat .num{
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:clamp(30px, 4vw, 44px);
+    line-height:1;
+  }
+  .stat:nth-child(1) .num{ color:var(--blue); }
+  .stat:nth-child(2) .num{ color:var(--lime); }
+  .stat:nth-child(3) .num{ color:var(--magenta); }
+  .stat:nth-child(4) .num{ color:var(--violet); }
+  .stat .label{
+    margin-top:10px;
+    font-size:14px;
+    color:var(--text-dim);
+  }
+  @media (max-width:760px){
+    .stats-grid{ grid-template-columns:1fr 1fr; }
+    .stat{ border-left:none; border-top:1px solid var(--border); padding:28px 0; }
+    .stat:nth-child(odd){ padding-right:16px; }
+    .stat:nth-child(even){ padding-left:16px; }
+    .stat:first-child, .stat:nth-child(2){ border-top:none; }
+  }
+
+  /* ---------- About ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:60px;
+    align-items:center;
+  }
+  .about-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius-lg);
+    padding:36px;
+  }
+  .about-card .role{
+    font-family:var(--font-mono);
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--lime);
+  }
+  .about-card h3{
+    margin-top:10px;
+    font-size:24px;
+  }
+  .about-card .divider{
+    height:1px;
+    background:var(--border);
+    margin:22px 0;
+  }
+  .about-card ul{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .about-card li{
+    display:flex;
+    gap:10px;
+    font-size:14px;
+    color:var(--text-dim);
+  }
+  .about-card li::before{
+    content:"";
+    width:5px; height:5px;
+    margin-top:7px;
+    border-radius:50%;
+    background:var(--blue);
+    flex-shrink:0;
+  }
+  .about-text p{
+    color:var(--text-dim);
+    font-size:16px;
+    margin-bottom:18px;
+  }
+  .about-text p:first-of-type{
+    font-size:19px;
+    color:var(--text);
+    font-family:var(--font-display);
+    font-weight:500;
+    line-height:1.4;
+  }
+  @media (max-width:860px){
+    .about-grid{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- Contact ---------- */
+  .contact{
+    background:var(--bg-alt);
+    border-top:1px solid var(--border);
+  }
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:24px;
+    align-items:stretch;
+  }
+  .panel{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius-lg);
+    padding:40px;
+  }
+  .panel h3{ font-size:22px; margin-bottom:6px; }
+  .panel .sub{ color:var(--text-dim); font-size:14px; margin-bottom:28px; }
+
+  .field{
+    margin-bottom:18px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .field label{
+    font-size:13px;
+    font-weight:500;
+    color:var(--text-dim);
+  }
+  .field input,
+  .field select,
+  .field textarea{
+    background:var(--bg);
+    border:1px solid var(--border-strong);
+    border-radius:var(--radius-sm);
+    padding:13px 14px;
+    color:var(--text);
+    font-family:var(--font-body);
+    font-size:14px;
+    outline:none;
+    transition:border-color .15s ease, box-shadow .15s ease;
+  }
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus{
+    border-color:var(--blue);
+    box-shadow:0 0 0 3px rgba(53,193,255,0.18);
+  }
+  .field select{appearance:auto;color:var(--text);}
+  .field select option{background:#111118;color:#f5f5f7;}
+  .field textarea{ resize:vertical; min-height:110px; }
+  .form-note{
+    margin-top:14px;
+    font-size:12px;
+    color:var(--text-faint);
+  }
+
+  .gform-embed{
+    margin-top:20px;
+    border-radius:var(--radius-md);
+    overflow:hidden;
+    background:#fff;
+  }
+  .gform-embed iframe{
+    display:block;
+    width:100%;
+    border:none;
+  }
+
+  .book-panel{
+    background:linear-gradient(160deg, var(--surface) 0%, #14101c 100%);
+    display:flex;
+    flex-direction:column;
+  }
+  .book-panel .badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--violet);
+    background:rgba(155,92,255,0.12);
+    border:1px solid rgba(155,92,255,0.3);
+    padding:6px 12px;
+    border-radius:999px;
+    width:fit-content;
+    margin-bottom:20px;
+  }
+  .book-panel .clock{
+    width:7px; height:7px; border-radius:50%;
+    background:var(--violet);
+  }
+  .book-panel h3{ font-size:24px; }
+  .book-panel p{ color:var(--text-dim); font-size:14px; margin-top:10px; margin-bottom:26px; }
+  .book-panel ul{ margin-bottom:30px; display:flex; flex-direction:column; gap:12px; }
+  .book-panel li{
+    display:flex;
+    gap:10px;
+    font-size:14px;
+    color:var(--text-dim);
+  }
+  .book-panel li::before{
+    content:"✓";
+    color:var(--lime);
+    font-weight:700;
+    flex-shrink:0;
+  }
+  .book-panel .btn{ margin-top:auto; }
+
+  @media (max-width:900px){
+    .contact-grid{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding:50px 0 36px;
+  }
+  .footer-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:24px;
+    padding-bottom:30px;
+    border-bottom:1px solid var(--border);
+  }
+  .footer-links{
+    display:flex;
+    gap:26px;
+    flex-wrap:wrap;
+  }
+  .footer-links a{
+    font-size:14px;
+    color:var(--text-dim);
+  }
+  .footer-links a:hover{ color:var(--text); }
+  .footer-bottom{
+    padding-top:24px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+    font-size:13px;
+    color:var(--text-faint);
+  }
+
+  /* Brighter Ads illustrated hero */
+  .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+  .hero.hero-artwork{padding:0;background:#100c1a;}
+  .hero-artwork::before,.hero-artwork::after{display:none;}
+  .hero-artwork-frame{position:relative;width:100%;max-width:1920px;margin:0 auto;}
+  .hero-artwork-frame img{width:100%;height:auto;display:block;}
+  .hero-artwork-link{position:absolute;left:4.1%;top:70.6%;width:17.7%;height:8.8%;border-radius:999px;z-index:2;}
+  .hero-artwork-link:focus-visible{outline:3px solid #fff;outline-offset:4px;}
+  .hero-mobile-action{display:none;text-align:center;padding:14px 20px 26px;}
+  @media(max-width:700px){.hero-artwork-link{display:none}.hero-mobile-action{display:block}}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav wrap">
+    <a href="#top" class="logo"><span class="logo-dot"></span>BRIGHTER ADS</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      <a href="#book" class="btn btn-primary">Book a call</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO: artwork includes the headline and visual carousel. Keep accessible text for search and screen readers. -->
+  <section class="hero hero-artwork" aria-labelledby="hero-heading">
+    <h1 id="hero-heading" class="visually-hidden">Strategic ad campaigns for sustainable business growth — Brighter Ads</h1>
+    <p class="visually-hidden">Data-driven paid media strategies for mobile apps, consumer apps and games, including user acquisition, creative strategy, retention and monetization.</p>
+    <div class="hero-artwork-frame">
+      <img src="brighter-ads-hero-purple.png" width="1671" height="941" fetchpriority="high" alt="Brighter Ads: strategic ad campaigns for sustainable business growth, with illustrative fictional gaming and consumer app screens in a purple carousel." />
+      <a href="#contact" class="hero-artwork-link" aria-label="Let's talk — contact Brighter Ads"></a>
+    </div>
+    <div class="hero-mobile-action"><a href="#contact" class="btn btn-primary">Let's talk →</a></div>
+  </section>
+
+  <!-- TICKER — signature element -->
+  <div class="ticker-section">
+    <div class="ticker-label wrap" style="padding-left:0; padding-right:0;">Our expertise — connected disciplines for mobile growth</div>
+    <div class="ticker-track-wrap">
+      <div class="ticker-track" id="tickerTrack">
+        <!-- items injected twice via JS for seamless loop -->
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">What We Do</span>
+        <h2>Your Growth. Our Expertise.</h2>
+        <p>We help mobile games and apps unlock their full potential through data-driven strategies, performance marketing, and continuous optimization. From user acquisition and monetization to creative strategy and data analytics, we connect every aspect of mobile growth to maximize performance, improve profitability, and deliver sustainable results.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card card-blue reveal">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3>User Acquisition &amp; Performance Marketing</h3>
+          <p>Data-driven user acquisition strategies for mobile games and apps. From campaign setup and paid media management to performance optimization and scaling, we develop tailored acquisition strategies across CPI, CPE, CPA, and ROAS campaign models. Our approach focuses on attracting high-value users, improving retention, maximizing lifetime value (LTV), and supporting sustainable, profitable growth.</p>
+          <span class="tag">Mobile User Acquisition · Paid Media · CPI · CPE · CPA · ROAS · App Growth</span>
+        </div>
+
+        <div class="service-card card-lime reveal">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </div>
+          <h3>Monetization &amp; Revenue Growth</h3>
+          <p>Maximize your app&#x27;s revenue with tailored monetization strategies that balance profitability and user experience. From in-app advertising (IAA) and ad mediation to in-app purchases (IAP) and subscription models, we design and optimize monetization strategies that increase ARPDAU, LTV, and long-term revenue. Our approach combines ad placement strategy, pricing optimization, subscription product development, and continuous A/B testing to unlock new revenue opportunities while protecting user engagement and retention.</p>
+          <span class="tag">Ad Monetization · IAP · Subscription Strategy · Ad Mediation · Revenue Optimization · A/B Testing</span>
+        </div>
+
+        <div class="service-card card-magenta reveal">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          </div>
+          <h3>Creative Strategy &amp; Performance Marketing</h3>
+          <p>Develop high-performing ad creatives that connect with your audience and drive measurable results. We build data-driven creative strategies based on user behavior, audience insights, and brand identity. From defining creative concepts and storytelling to UGC, video ads, and compelling hooks, we create strategies tailored to each stage of the user journey. Through continuous A/B testing, creative performance analysis, and iterative optimization, we identify winning concepts, combat creative fatigue, and scale what works.</p>
+          <span class="tag">Creative Strategy · UGC · Video Ads · Brand Identity · Hook Testing · A/B Testing · Creative Optimization</span>
+        </div>
+
+        <div class="service-card card-violet reveal">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-6 4 3 4-8"/></svg>
+          </div>
+          <h3>Data Analytics &amp; User Insights</h3>
+          <p>Turn data into actionable insights that drive smarter decisions and sustainable growth. We analyze campaign performance, user behavior, and cohort data to identify trends, uncover growth opportunities, and continuously refine acquisition, monetization, and product strategies. From performance dashboards and campaign reporting to user segmentation, retention analysis, ROAS, and lifetime value (LTV) forecasting, we transform complex data into clear, actionable recommendations that support your business objectives.</p>
+          <span class="tag">Data Analytics · User Insights · Campaign Reporting · Cohort Analysis · User Retention · LTV Forecasting · Performance Dashboards</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="experience" id="experience">
+    <div class="wrap" style="padding:0 28px;">
+      <div class="stats-grid">
+        <div class="stat reveal"><div class="num">10+ Years</div><div class="label">Mobile Growth &amp; Performance Marketing</div></div>
+        <div class="stat reveal"><div class="num">Gaming &amp; Dating</div><div class="label">Cross-Industry Expertise</div></div>
+        <div class="stat reveal"><div class="num">Startups &amp; Global Brands</div><div class="label">Experience Across Business Stages</div></div>
+        <div class="stat reveal"><div class="num">End-to-End Growth</div><div class="label">From Strategy to Execution</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-card reveal">
+          <span class="role">Independent Growth Consultancy</span>
+          <h3>Brighter Ads</h3>
+          <div class="divider"></div>
+          <ul>
+            <li>Over a decade of mobile growth and performance marketing experience</li>
+            <li>Specialized experience across gaming and dating apps</li>
+            <li>Experience with startups and established international businesses</li>
+            <li>Connected expertise in acquisition, monetization, creative strategy and analytics</li>
+          </ul>
+        </div>
+        <div class="about-text reveal">
+          <span class="eyebrow">About Brighter Ads</span>
+          <h2 style="margin:16px 0 22px; font-size:clamp(27px, 3vw, 38px);">Experience Meets Strategy. Strategy Drives Growth.</h2>
+          <p>Brighter Ads is an independent mobile growth and performance marketing consultancy built on over a decade of experience across the gaming and dating app industries.</p>
+          <p>From ambitious startups to established international businesses, our expertise spans diverse markets, business models, and growth stages.</p>
+          <p>We combine strategic thinking, hands-on execution, and a deep understanding of user behavior to develop tailored strategies across user acquisition, monetization, creative strategy, and data analytics.</p>
+          <p>Our mission is simple: to help mobile businesses unlock their full potential through data-driven decisions, measurable performance, and sustainable growth.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Contact</span>
+        <h2>Let's Grow Together.</h2>
+        <p>Whether you’re launching a mobile app, scaling user acquisition, or optimizing monetization, tell us about your project and let’s explore your next stage of growth.</p>
+      </div>
+
+      <div class="contact-grid reveal">
+        <div class="panel">
+          <h3>Send a message</h3>
+          <div class="sub">Tell us about your project, challenges, and goals. We aim to reply within one business day.</div>
+
+          <!-- Native-styled contact form. Connect to a verified form endpoint before enabling submission. -->
+          <form class="contact-native-form" id="contactNativeForm">
+            <div class="field"><label for="contactName">Name *</label><input id="contactName" name="name" type="text" placeholder="Your name" autocomplete="name" required></div>
+            <div class="field"><label for="contactEmail">Work email *</label><input id="contactEmail" name="email" type="email" placeholder="you@company.com" autocomplete="email" required></div>
+            <div class="field"><label for="contactCompany">Company / App</label><input id="contactCompany" name="company" type="text" placeholder="Your company or app"></div>
+            <div class="field"><label for="contactTopic">What can we help you with?</label><select id="contactTopic" name="topic"><option value="">Select a topic (optional)</option><option>User Acquisition &amp; Performance Marketing</option><option>Monetization &amp; Revenue Growth</option><option>Creative Strategy</option><option>Data Analytics &amp; User Insights</option><option>Growth Strategy &amp; Consulting</option><option>Other / General Inquiry</option></select></div>
+            <div class="field"><label for="contactMessage">How can we help? *</label><textarea id="contactMessage" name="message" placeholder="Tell us about your project and growth goals…" required></textarea></div>
+            <button type="button" class="btn btn-primary btn-block" disabled title="Connect the form before enabling submissions">Send message →</button>
+            <p class="form-note">Preview only — submissions will be enabled once the form is connected. Your information will be used to respond to your enquiry. See our <a href="privacy-policy.html" style="color:var(--blue);text-decoration:underline">Privacy Policy</a>.</p>
+            <p class="form-note">In the meantime, <a href="https://docs.google.com/forms/d/e/1FAIpQLSfSnE6xj_EEnVQUi3lnCPJq5bLbZO_gse8fbpexu840ykMDeA/viewform" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:underline">use our contact form ↗</a>.</p>
+          </form>
+        </div>
+
+        <div class="panel book-panel" id="book">
+          <span class="badge"><span class="clock"></span>30 MIN · FREE · GOOGLE MEET</span>
+          <h3>Book a Free 30-Minute Consultation</h3>
+          <p>Let’s discuss your business objectives, explore growth opportunities, and identify how Brighter Ads can support your next stage of growth.</p>
+          <ul>
+            <li>Discuss your current growth challenges</li>
+            <li>Explore acquisition and monetization opportunities</li>
+            <li>Identify the right next steps for your business</li>
+          </ul>
+          <div class="booking-details" style="border:1px solid var(--border);border-radius:14px;padding:18px;margin-bottom:22px;background:var(--bg);">
+            <p style="margin:0 0 8px;color:var(--text);font-weight:600;">Plan your consultation</p>
+            <p style="margin:0;color:var(--text-dim);">Choose an available slot in our live Google Calendar booking page. Please book at least 48 hours ahead.</p>
+          </div>
+          <!-- Google Calendar manages live availability, invitations and Meet links.
+               Set minimum notice to 48 hours in Google Calendar's appointment schedule settings.
+               Replace this link with Google's official inline booking embed if an embed URL is supplied. -->
+          <a href="https://calendar.app.google/tfEtdDSjLbjyohd59"
+             class="btn btn-primary btn-block"
+             target="_blank" rel="noopener">View Available Times →</a>
+          <div class="form-note">Google Calendar handles available times and booking confirmations. Minimum notice must be configured in your Google Calendar appointment schedule.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <a href="#top" class="logo"><span class="logo-dot"></span>BRIGHTER ADS</a>
+      <ul class="footer-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="legal-notice.html">Legal Notice</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Brighter Ads. All rights reserved.</span>
+      <span>User acquisition · Monetization · Creative strategy · Data analytics</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // Ticker content
+  const tickerItems = [
+    { cls:'t-blue',    text:'USER ACQUISITION' },
+    { cls:'t-lime',    text:'MONETIZATION' },
+    { cls:'t-magenta', text:'CREATIVE STRATEGY' },
+    { cls:'t-violet',  text:'DATA ANALYTICS' },
+    { cls:'t-blue',    text:'GROWTH STRATEGY' },
+  ];
+  const track = document.getElementById('tickerTrack');
+  function renderTicker(){
+    const html = tickerItems.map(i => `<div class="ticker-item ${i.cls}"><span class="dot"></span>${i.text}</div>`).join('');
+    track.innerHTML = html + html; // duplicate for seamless loop
+  }
+  renderTicker();
+
+  // Scroll reveal
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduceMotion && 'IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if(e.isIntersecting){
+          e.target.classList.add('in-view');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in-view'));
+  }
+</script>
+
+</body>
+</html>
