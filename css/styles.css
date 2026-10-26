@@ -512,6 +512,32 @@ header{
   .about-grid{ grid-template-columns:1fr; }
 }
 
+/* ---------- FAQ ---------- */
+.faq{
+  background:var(--bg-alt);
+  border-top:1px solid var(--border);
+}
+.faq-list{max-width:880px;}
+.faq-item{border-bottom:1px solid var(--border-strong);}
+.faq-item:first-child{border-top:1px solid var(--border-strong);}
+.faq-item summary{
+  padding:24px 8px;
+  font-family:var(--font-display);
+  font-size:clamp(18px, 2vw, 21px);
+  font-weight:500;
+  line-height:1.4;
+  cursor:pointer;
+}
+.faq-item summary::marker{color:var(--lime);}
+.faq-item summary:hover,.faq-item[open] summary{color:var(--lime);}
+.faq-item p{
+  padding:0 8px 24px;
+  color:var(--text-dim);
+  font-size:15px;
+  line-height:1.8;
+}
+.faq-item a{color:var(--blue);text-decoration:underline;text-underline-offset:3px;}
+
 /* ---------- Contact ---------- */
 .contact{
   background:var(--bg-alt);

@@ -19,6 +19,7 @@ Brighter Ads supports businesses launching a mobile app or game, scaling acquisi
 
 - [Brighter Ads](https://brighterads.com/): Official website and overview of the consultancy.
 - [Services](https://brighterads.com/#services): User acquisition, monetization, creative strategy, and data analytics services for mobile games and apps.
+- [Mobile app growth FAQ](https://brighterads.com/#faq): Answers about acquisition support, CPI, CPE, CPA, ROAS, IAA, IAP, subscriptions, ARPDAU, LTV, creative testing and cohort analysis.
 - [Experience](https://brighterads.com/#about): Mobile growth experience and industries served.
 - [About](https://brighterads.com/#about): Consultancy background and approach.
 
