@@ -1,0 +1,12 @@
+# Search engines and other crawlers: allow public pages and rendering assets.
+User-agent: *
+Allow: /
+
+# AI search crawlers: explicitly allow discovery for generative answers.
+User-agent: OAI-SearchBot
+User-agent: Claude-SearchBot
+User-agent: PerplexityBot
+Allow: /
+
+# Canonical sitemap.
+Sitemap: https://brighterads.com/sitemap.xml
