@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Brighter Ads — Great apps. Great games. Brighter growth.">
+  <rect width="1200" height="630" fill="#07070b"/>
+  <g fill="none" stroke-width="6">
+    <circle cx="1080" cy="304" r="163" stroke="#35c1ff"/>
+    <circle cx="1080" cy="304" r="132" stroke="#ff3dae"/>
+    <circle cx="1080" cy="304" r="101" stroke="#9b5cff"/>
+    <circle cx="1080" cy="304" r="70" stroke="#d4ff3d"/>
+  </g>
+  <rect x="64" y="64" width="14" height="14" rx="4" fill="#d4ff3d"/>
+  <g font-family="Segoe UI, Arial, sans-serif" font-weight="700" fill="#f5f5f7">
+    <text x="94" y="82" font-size="28" letter-spacing="1">BRIGHTER ADS</text>
+    <text x="64" y="224" font-size="76">Great apps.</text>
+    <text x="64" y="318" font-size="76">Great games.</text>
+    <text x="64" y="412" font-size="76" fill="#d4ff3d">Brighter growth.</text>
+  </g>
+  <g font-family="Segoe UI, Arial, sans-serif" font-size="24" fill="#9a9aa8">
+    <text x="64" y="508">User acquisition · Monetization · Creative strategy</text>
+    <text x="64" y="548">Data analytics for mobile games and apps.</text>
+    <text x="64" y="598" font-size="19">brighterads.com</text>
+  </g>
+</svg>

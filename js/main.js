@@ -16,3 +16,6 @@ document.addEventListener('keydown', event => {
     navToggle.focus();
   }
 });
+
+// Collapse the mobile menu only after its controls are ready.
+document.documentElement.classList.add('nav-ready');

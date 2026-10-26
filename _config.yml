@@ -1,0 +1,5 @@
+# GitHub Pages builds this directory with Jekyll. Keep internal files
+# out of the generated public site.
+exclude:
+  - fonts/README.md
+  - _docs
