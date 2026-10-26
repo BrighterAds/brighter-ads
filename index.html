@@ -164,16 +164,23 @@
     </div>
   </section>
 
-  <!-- Expertise stays visible without JavaScript or automatic movement. -->
+  <!-- Expertise remains readable without JavaScript or with reduced motion. -->
   <div class="ticker-section">
-    <div class="ticker-label wrap">Our expertise — connected disciplines for mobile growth</div>
+    <div class="ticker-heading wrap">
+      <div class="ticker-label">Our expertise — connected disciplines for mobile growth</div>
+      <button class="ticker-toggle" type="button" aria-controls="tickerTrack" aria-pressed="false" hidden>Pause animation</button>
+    </div>
     <div class="ticker-track-wrap">
-      <div class="ticker-track" id="tickerTrack">
-        <div class="ticker-item t-blue"><span class="dot" aria-hidden="true"></span>User acquisition</div>
-        <div class="ticker-item t-lime"><span class="dot" aria-hidden="true"></span>Monetization</div>
-        <div class="ticker-item t-magenta"><span class="dot" aria-hidden="true"></span>Creative strategy</div>
-        <div class="ticker-item t-violet"><span class="dot" aria-hidden="true"></span>Data analytics</div>
-        <div class="ticker-item t-blue"><span class="dot" aria-hidden="true"></span>Growth strategy</div>
+      <div class="ticker-viewport">
+        <div class="ticker-track" id="tickerTrack">
+          <div class="ticker-group">
+            <div class="ticker-item t-blue"><span class="dot" aria-hidden="true"></span>User acquisition</div>
+            <div class="ticker-item t-lime"><span class="dot" aria-hidden="true"></span>Monetization</div>
+            <div class="ticker-item t-magenta"><span class="dot" aria-hidden="true"></span>Creative strategy</div>
+            <div class="ticker-item t-violet"><span class="dot" aria-hidden="true"></span>Data analytics</div>
+            <div class="ticker-item t-blue"><span class="dot" aria-hidden="true"></span>Growth strategy</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

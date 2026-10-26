@@ -1,4 +1,4 @@
-// Only navigation needs JavaScript; all page content is visible without it.
+// All page content is visible without JavaScript.
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 function closeMenu() {
@@ -19,3 +19,17 @@ document.addEventListener('keydown', event => {
 
 // Collapse the mobile menu only after its controls are ready.
 document.documentElement.classList.add('nav-ready');
+
+// Repeat one complete group so the expertise strip loops without a jump.
+const ticker = document.querySelector('.ticker-section');
+const tickerTrack = document.getElementById('tickerTrack');
+const tickerToggle = document.querySelector('.ticker-toggle');
+const tickerCopy = tickerTrack.querySelector('.ticker-group').cloneNode(true);
+tickerCopy.setAttribute('aria-hidden', 'true');
+tickerTrack.appendChild(tickerCopy);
+tickerToggle.hidden = false;
+tickerToggle.addEventListener('click', () => {
+  const paused = ticker.classList.toggle('ticker-paused');
+  tickerToggle.setAttribute('aria-pressed', String(paused));
+});
+ticker.classList.add('ticker-ready');

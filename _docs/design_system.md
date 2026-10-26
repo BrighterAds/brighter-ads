@@ -65,7 +65,7 @@ Fonts are served locally through `css/fonts.css`. The WOFF2 files, source inform
 - Primary button: lime background and dark text. Secondary button: transparent background and light border.
 - Service cards: one accent per discipline, with a subtle border and a glow on hover.
 - Preserve existing component breakpoints and their reading order on mobile.
-- The expertise strip is static, wraps onto multiple lines, and remains visible without JavaScript. Page content is visible by default; only the mobile menu is enhanced by `js/main.js`, after its controls are wired up.
+- The expertise strip scrolls in a continuous loop, pauses on hover or keyboard focus, and has a pause toggle. It stays static and wraps onto multiple lines without JavaScript or when reduced motion is requested. Page content is visible by default; the mobile menu and expertise strip are enhanced by `js/main.js`, after their controls are wired up.
 - The sharing image is `images/social-preview.png` (1200 × 630), exported from the SVG with the same name. Update both together.
 
 ## Favicon
