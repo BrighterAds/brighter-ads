@@ -78,11 +78,10 @@ Les déclinaisons sont déclarées dans `index.html`, `privacy-policy.html` et `
 | `icons/favicon-16x16.png`, `icons/favicon-32x32.png` | Favicons PNG de secours |
 | `icons/apple-touch-icon.png` | Icône iOS/iPadOS de 180 px, fond opaque et carré ; le système arrondit les coins |
 | `icons/safari-pinned-tab.svg` | Masque monochrome transparent pour les onglets épinglés Safari |
-| `icons/icon-192.png`, `icons/icon-512.png` | Icônes du manifeste pour les raccourcis et applications web |
+| `icons/icon-192.png`, `icons/icon-512.png` | Exports raster supplémentaires de 192 et 512 px |
 | `icons/icon-maskable-512.png` | Icône Android avec fond opaque et dessin réduit à 80 % pour rester dans le cercle de sécurité central |
-| `site.webmanifest` | Nom, icônes, couleurs et lancement en fenêtre autonome ; chemins relatifs compatibles avec un hébergement en sous-dossier |
 
-Les PNG et l'ICO utilisent la version sombre, lisible sur les deux thèmes. Le manifeste et la barre du navigateur conservent `#07070B`, comme le fond du site. Le manifeste ne fournit pas de fonctionnement hors ligne.
+Les PNG et l'ICO utilisent la version sombre, lisible sur les deux thèmes. La barre du navigateur conserve `#07070B`, comme le fond du site. Le site ne déclare pas de manifeste d'application web, afin de ne pas déclencher de proposition d'installation automatique sur mobile.
 
 Pour réexporter les images depuis `icons/favicon.svg`, figer les couleurs sombres, puis rasteriser aux dimensions indiquées. Pour Apple, retirer l'arrondi du fond. Pour l'icône maskable, conserver un fond carré plein et appliquer `translate(6.4 6.4) scale(0.8)` à l'anneau et à la lettre dans le repère 64 × 64. Le masque Safari reprend uniquement la lettre et l'anneau en noir sur fond transparent.
 
